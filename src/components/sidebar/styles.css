@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  width: 100%;
+  padding: 20px;
+}
+
+.item-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  align-items: center;
+  cursor: pointer;
+}
+.sidebar {
+  background: black;
+  height: 100vh;
+  color: white;
+  width: 300px;
+  transition: all 0.5s;
+}
+
+.top_section {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: end;
+}
+.logo {
+  font-size: 30px;
+}
+
+.link {
+  display: flex;
+  color: #9cd4fc;
+  padding: 10px 15px;
+  gap: 15px;
+  transition: all0.5s;
+}
+
+.link :hover {
+  color: white;
+  transform: all 0.5s;
+}
+
+.active {
+  color: black;
+}
+
+.bars {
+  display: flex;
+  font-size: 8px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 21px;
+  width: 20px;
+  height: 20px;
+  margin: 20px 0;
+}
+.icon :hover {
+  color: white;
+  transform: all 0.5s;
+}

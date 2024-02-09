@@ -1,0 +1,50 @@
+.job-container {
+  display: flex;
+  flex: 1 1;
+  background: black;
+  margin: 20px;
+  padding: 10px;
+  flex-direction: column;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.job-container:hover {
+  background: #fa2a2a75;
+}
+
+.request-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.requestId {
+  display: flex;
+}
+
+.driver-name {
+  display: flex;
+}
+
+.time {
+  padding: 10px 0;
+}
+
+.status-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status {
+  /* background: lightcoral; */
+}
+
+.arrow {
+  /* background: lightcoral; */
+}
+.job-icon {
+  font-size: 21px;
+  width: 20px;
+  height: 20px;
+}

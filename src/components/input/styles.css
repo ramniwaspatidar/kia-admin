@@ -1,0 +1,23 @@
+.inputContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.inputBox {
+  height: 48px;
+  width: 400px;
+  font-size: large;
+  border-radius: 8px;
+  border: 1px solid grey;
+  padding-left: 8px;
+}
+.input-box-label {
+  height: 30px;
+  padding-left: 8px;
+  align-self: flex-start;
+  align-items: flex-start;
+  color: white;
+}
