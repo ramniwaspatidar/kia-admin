@@ -4,6 +4,7 @@ import "./styles.css";
 import logoImage from "../../assets/logo.png";
 import CustomInput from "../../components/input/CustomInput";
 import firebase from "../../firebase/firebase";
+import Cookies from "js-cookie";
 
 const Login = (props) => {
   const [errors, setErrors] = useState({});
@@ -35,11 +36,20 @@ const Login = (props) => {
 
     if (validateForm()) {
       try {
-        await firebase.auth().signInWithEmailAndPassword(email, password);
+        const user = await firebase.auth().signInWithEmailAndPassword(email, password);
+        if (user) {
+          const currentUser = await firebase.auth().currentUser;
+          const idTokenResult = await currentUser.getIdToken(true);
+
+          Cookies.set("firebaseToken", idTokenResult);
+          Cookies.set("email", firebase.auth().currentUser.email);
+        }
 
         console.log(firebase.auth().currentUser.email);
 
         console.log("Logged in successfully");
+
+        navigate("/");
       } catch (error) {
         console.error("Error logging in:", error.message);
       }

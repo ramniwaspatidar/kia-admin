@@ -5,23 +5,29 @@ import Jobs from "./pages/jobs/Jobs";
 import Login from "./pages/login/Login";
 import Sidebar from "./components/sidebar/Sidebar";
 import React, { Component } from "react";
+import firebase from "./firebase/firebase";
+import Cookies from "js-cookie";
 
 function App() {
+  const currentUser = firebase.auth().currentUser;
+  const isLoggedIn = Cookies.get("firebaseToken");
+
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Sidebar>
+        {isLoggedIn ? (
+          <Sidebar>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/driver" element={<Driver />} />
+              <Route path="/jobs" element={<Jobs />} />
+            </Routes>
+          </Sidebar>
+        ) : (
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/driver" element={<Driver />} />
-            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/" element={<Login />} />
           </Routes>
-        </Sidebar> */}
-
-        <Routes>
-          <Route path="/" element={<Login />} />
-        </Routes>
+        )}
       </BrowserRouter>
     </div>
   );
