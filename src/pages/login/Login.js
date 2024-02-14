@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import logoImage from "../../assets/logo.png";
@@ -7,6 +7,8 @@ import firebase from "../../firebase/firebase";
 import Cookies from "js-cookie";
 
 const Login = (props) => {
+  const { setIsLogin } = props;
+
   const [errors, setErrors] = useState({});
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,13 +45,13 @@ const Login = (props) => {
 
           Cookies.set("firebaseToken", idTokenResult);
           Cookies.set("email", firebase.auth().currentUser.email);
+          setIsLogin(idTokenResult);
+          // navigate("/");
         }
 
         console.log(firebase.auth().currentUser.email);
 
         console.log("Logged in successfully");
-
-        navigate("/");
       } catch (error) {
         console.error("Error logging in:", error.message);
       }

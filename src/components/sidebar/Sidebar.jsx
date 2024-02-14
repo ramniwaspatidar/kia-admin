@@ -44,7 +44,7 @@ const Sidebar = ({ children }) => {
     },
 
     {
-      path: "/logout",
+      path: "/",
       name: "Sign Out",
       icon: logout,
     },
