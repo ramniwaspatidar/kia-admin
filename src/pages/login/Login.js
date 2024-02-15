@@ -46,7 +46,7 @@ const Login = (props) => {
           Cookies.set("firebaseToken", idTokenResult);
           Cookies.set("email", firebase.auth().currentUser.email);
           setIsLogin(idTokenResult);
-          // navigate("/");
+          navigate("/");
         }
 
         console.log(firebase.auth().currentUser.email);

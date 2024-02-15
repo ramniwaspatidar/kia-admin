@@ -4,21 +4,29 @@ import Tabs, { Tab } from "react-best-tabs";
 import "react-best-tabs/dist/index.css";
 import "./styles.css";
 import JobItems from "../../components/job/JobItems";
+import { APIsMethod, BASEURL } from "../../constants";
+import ApisEndpoint from "../../constants/ApisEndpoint";
+import { Apis } from "../../axios/Apis";
 
 const Dashboard = (props) => {
   const { loggedIn, email } = props;
   const [search, setSearch] = useState("");
+  const [jobList, setList] = useState([]);
+
   const navigate = useNavigate();
 
-  const dataList = [
-    { id: 1, title: "Item 1", description: "Description for Item 1" },
-    { id: 2, title: "Item 2", description: "Description for Item 2" },
-    { id: 3, title: "Item 3", description: "Description for Item 3" },
-    // Add more items as needed
-  ];
+  React.useEffect(() => {
+    getJobList();
+  }, []);
 
-  const onButtonClick = () => {
-    // You'll update this function later
+  const getJobList = async () => {
+    try {
+      const url = BASEURL + ApisEndpoint.jobList;
+      const response = await Apis.request(url, APIsMethod.get);
+      if (response.status === true) {
+        setList(response.payload ? response.payload : []);
+      }
+    } catch (error) {}
   };
 
   const handleInputChange = (e) => {
@@ -41,13 +49,13 @@ const Dashboard = (props) => {
         onClick={(event, tab) => console.log(event, tab)}
       >
         <Tab title="New" className="mr-3">
-          {dataList.map((item) => (
+          {jobList.map((item) => (
             <JobItems key={item.id} data={item} />
           ))}
         </Tab>
 
         <Tab title="Completed" className="mr-3">
-          {dataList.map((item) => (
+          {jobList.map((item) => (
             <JobItems key={item.id} data={item} />
           ))}{" "}
         </Tab>
@@ -57,7 +65,7 @@ const Dashboard = (props) => {
         </Tab>
 
         <Tab title="Cancelled" className="mr-3">
-          {dataList.map((item) => (
+          {jobList.map((item) => (
             <JobItems key={item.id} data={item} />
           ))}
         </Tab>

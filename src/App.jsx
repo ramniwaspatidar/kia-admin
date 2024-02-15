@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
-import Driver from "./pages/driver/Driver";
 import Jobs from "./pages/jobs/Jobs";
 import Login from "./pages/login/Login";
 import Sidebar from "./components/sidebar/Sidebar";
 import React, { Component, useEffect, useState } from "react";
 import firebase from "./firebase/firebase";
 import Cookies from "js-cookie";
+import DriverRequest from "./pages/driver/DriverRequest";
 
 function App() {
   const [isLogin, setIsLogin] = useState("");
@@ -23,7 +23,7 @@ function App() {
           <Sidebar>
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/driver" element={<Driver />} />
+              <Route path="/driver-request" element={<DriverRequest />} />
               <Route path="/jobs" element={<Jobs />} />
             </Routes>
           </Sidebar>

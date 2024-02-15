@@ -1,0 +1,10 @@
+.driver-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  /* background: linear-gradient(180deg, #c837ab 0%, #040404 100%); */
+  height: 100vh;
+  overflow-y: auto;
+  background: Colors;
+  background: #bd34a2;
+}
