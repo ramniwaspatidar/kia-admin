@@ -92,7 +92,7 @@ const Login = (props) => {
       </div>
       <br />
       <div className={"buttonContainer"}>
-        <input className={"inputButton"} type="button" onClick={handleSubmit} value={"Log in"} />
+        <input className={"inputButton"} type="button" onClick={handleSubmit} value={"LogIn"} />
       </div>
     </div>
   );

@@ -35,6 +35,11 @@ const Sidebar = ({ children }) => {
       name: "Driver Request",
       icon: truck,
     },
+    {
+      path: "/driver-code-request",
+      name: "Generate Driver Code",
+      icon: truck,
+    },
 
     // {
     //   path: "/request-code",

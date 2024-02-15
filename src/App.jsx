@@ -7,6 +7,8 @@ import React, { Component, useEffect, useState } from "react";
 import firebase from "./firebase/firebase";
 import Cookies from "js-cookie";
 import DriverRequest from "./pages/driver/DriverRequest";
+import DriverCodeRequest from "./pages/codeRequest/DriverCodeRequest";
+import { ToastContainer, toast } from "react-toast";
 
 function App() {
   const [isLogin, setIsLogin] = useState("");
@@ -18,13 +20,16 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer />
+
       <BrowserRouter>
         {isLogin ? (
           <Sidebar>
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/driver-request" element={<DriverRequest />} />
-              <Route path="/jobs" element={<Jobs />} />
+              <Route path="/driver-code-request" element={<DriverCodeRequest />} />
+              {/* <Route path="/jobs" element={<Jobs />} /> */}
             </Routes>
           </Sidebar>
         ) : (

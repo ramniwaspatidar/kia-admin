@@ -1,0 +1,9 @@
+.code-request-container {
+  flex-direction: column;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #c837ab 0%, #040404 100%);
+}

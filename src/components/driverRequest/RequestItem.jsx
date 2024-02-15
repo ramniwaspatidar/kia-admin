@@ -26,10 +26,6 @@ const RequestItem = (props) => {
           onClick={() => props.onRejectRequest(data)}
           value={"Reject Request"}
         />
-
-        {/* <div className="status">Status In Que</div>
-
-        <img className="job-icon" src={nextArrow} alt="Logo" /> */}
       </div>
     </div>
   );
